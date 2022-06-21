@@ -27,7 +27,7 @@ const CountryDropdown = () => {
           <RiArrowDownSLine className="dropdown-icon-secondary " />
         )}
       </Menu.Button>
-      <Menu.Items>
+      <Menu.Items className="dropdown-menu">
         {countries.map((country, index) => {
           return (
             <Menu.Item

@@ -22,6 +22,20 @@ const HouseContextProvider = ({ children }) => {
     const uniqueCountries = ["Location (any)", ...new Set(allCountries)];
     setCountries(uniqueCountries);
   }, []);
+  //return all properties
+  useEffect(() => {
+    const allProperties = houses.map((house) => {
+      return house.type;
+    });
+    //remove duplicates
+    const uniqueProperties = ["Property (any)", ...new Set(allProperties)];
+    setProperties(uniqueProperties);
+  }, []);
+  //handle button click
+  const handleClick = () => {
+    console.log("clicked");
+  };
+
   return (
     <HouseContext.Provider
       value={{
@@ -35,6 +49,7 @@ const HouseContextProvider = ({ children }) => {
         setPrice,
         houses,
         loading,
+        handleClick,
       }}
     >
       {children}
