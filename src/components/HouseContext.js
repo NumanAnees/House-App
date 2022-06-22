@@ -33,6 +33,8 @@ const HouseContextProvider = ({ children }) => {
   }, []);
   //handle button click
   const handleClick = () => {
+    //loading
+    setLoading(true);
     //create a func which checks if string includes any.
     const isDefault = (str) => {
       return str.split(" ").includes("(any)");
@@ -90,7 +92,11 @@ const HouseContextProvider = ({ children }) => {
         );
       }
     });
-    setHouses(newHouses);
+    setTimeout(() => {
+      newHouses.length < 1 ? setHouses([]) : setHouses(newHouses);
+      setLoading(false);
+      return;
+    }, 1000);
   };
 
   return (
